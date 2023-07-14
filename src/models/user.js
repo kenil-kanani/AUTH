@@ -17,6 +17,11 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: [true, 'Password is required'],
+    },
+    status: {
+        type: Boolean,
+        default: false,
+        required:[true , 'Status is required to validate new user']
     }
 });
 
