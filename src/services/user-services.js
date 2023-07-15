@@ -1,4 +1,5 @@
 const UserRepository = require('../repository/user-repository');
+const sendMail = require('../utils/send-mail');
 const jwt = require('jsonwebtoken');
 const { JWT_KEY } = require('../config/serverConfig');
 const bcrypt = require('bcrypt');
@@ -17,6 +18,7 @@ class UserService {
                 });
             const newJWT = this.createToken({ id: user._id }, '1d');
             //- send token in mail or any other medium
+            await sendMail(user.email , newJWT);
             return newJWT;
         } catch (error) {
             console.log("Something went wrong with service layer.");

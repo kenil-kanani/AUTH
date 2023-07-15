@@ -25,7 +25,7 @@ const setUpAndStartServer = async () => {
     app.use('/api', ApiRoutes);
 
     app.listen(PORT, async () => {
-        console.log(`Server Started at port : ${PORT}`)
+        console.log(`Server Started at port : ${PORT}`);
     })
 }
 
